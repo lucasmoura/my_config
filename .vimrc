@@ -2,6 +2,7 @@ execute pathogen#infect()
 
 set nocompatible
 set hidden 
+set belloff=all
 
 set statusline=%(%F%m%r%h%w\ [%Y]\ %{&encoding}\ %)%=%(%l,%v\ %LL\ %p%%%)
 set laststatus=2
@@ -12,6 +13,11 @@ nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
 nmap <c-l> <c-w>l
 nmap <c-h> <c-w>h
+
+"Allow j and k with autocomplete"
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+
 
 nmap <LEADER>v :vsplit<CR>
 nmap <LEADER>s :split<CR>
@@ -29,6 +35,9 @@ nnoremap <LEADER>8 :8b<CR>
 nnoremap <LEADER>9 :9b<CR>
 nnoremap <LEADER>0 :10b<CR>
 
+"This unsets the last search pattern register by hitting return"
+nnoremap <CR> :noh<CR><CR>
+
 "+ and - to resize splited windows"
 map - <C-W>-
 map = <C-W>+
@@ -39,10 +48,6 @@ nmap <F7> :!cat %:p <bar> xclip -sel clip <bar> echo Filed was copied <CR>
 set ts=4
 setlocal expandtab
 setlocal softtabstop=4
-
-" 4 spaces for indenting
-set shiftwidth=4
-
 
 " Enable filetype plugins "
 filetype plugin on
@@ -130,7 +135,7 @@ syntax enable
 set encoding=utf8
 set noswapfile
 
-colorscheme desert
+colorscheme default
 set background=dark
 
 if has("gui_running")
