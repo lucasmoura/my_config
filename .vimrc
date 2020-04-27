@@ -101,7 +101,7 @@ set ai
 set si
 set wrap
 set lbr
-set tw=80
+set tw=100
 set copyindent    " copy the previous indentation on autoindenting
 set number        " always show line numbers
 set shiftwidth=4  " number of spaces to use for autoindenting
@@ -109,7 +109,7 @@ set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
 set expandtab
-set smartcase     " ignore case if search pattern is all lowercase,
+set smartcase     " ignore case if search pattern is all lowercase
                     "    case-sensitive otherwise
 set smarttab      " insert tabs on the start of a line according to
                     "    shiftwidth, not tabstop
@@ -122,6 +122,8 @@ set wildignore=*.o,*.~,*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
+
+let g:ctrlp_custom_ignore = 'build/'
 
 filetype plugin indent on
 
@@ -163,3 +165,6 @@ map <leader>k :Texplore<cr>
 
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>
+
+let vim_markdown_preview_github=1
+set tags=./tags;,tags;
